@@ -38,7 +38,7 @@ aomori_prefecture = Region('Aomori', 'in Aomori Prefecture', '', '', 0)
 
 ###Create data for charts.###
 
-filename = r'C:\Users\agard\OneDrive\Desktop\aomoricovid.csv'
+filename = 'aomoricovid.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
