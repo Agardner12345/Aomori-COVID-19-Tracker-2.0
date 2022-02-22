@@ -76,9 +76,9 @@ regions = [aomori, hachinohe, hirosaki, goshogawara, mutsu, kamitosan, sannohe, 
 
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
-ax.plot(dates[-14:], aomori_prefecture.cases[-14:], c='red', marker='o')
+ax.plot(dates[-21:], aomori_prefecture.cases[-21:], c='red', marker='o')
 
-ax.set_title('Cases in Aomori Prefecture (Last 14 Days)', fontsize=16)
+ax.set_title('Cases in Aomori Prefecture (Last 21 Days)', fontsize=16)
 ax.set_xlabel('Date', fontsize=10)
 fig.autofmt_xdate()
 ax.set_ylabel('Cases', fontsize=10)
@@ -110,7 +110,7 @@ for region in regions:
 
 print("\nTo find more information about a particular region, please enter the region's name.")
 print("\nTo see a visual representation of data, please enter 'charts'.")
-print("\nCase numbers are updated daily at approximately 4:30 p.m. All data is cited from the Aomori Prefectural Government."
+print("\nCase numbers are updated daily at approximately 5:00 p.m. All data is cited from the Aomori Prefectural Government."
       "\nPlease visit https://www.pref.aomori.lg.jp/ for more information.")
 print("\nTo exit the program, please enter 'exit'.\n")
 
