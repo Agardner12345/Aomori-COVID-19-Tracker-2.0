@@ -71,7 +71,11 @@ outside_aomori.fourteen_day = round(sum(outside_aomori.cases[-14:])/14, 1)
 aomori_prefecture.fourteen_day = round(sum(aomori_prefecture.cases[-14:])/14, 1)
 
 rolling_average = [
-    round(sum(aomori_prefecture.cases[-34:-20])/14, 1),
+    round(sum(aomori_prefecture.cases[-43:-29])/14, 1), round(sum(aomori_prefecture.cases[-42:-28])/14, 1),
+    round(sum(aomori_prefecture.cases[-41:-27])/14, 1), round(sum(aomori_prefecture.cases[-40:-26])/14, 1),
+    round(sum(aomori_prefecture.cases[-39:-25])/14, 1), round(sum(aomori_prefecture.cases[-38:-24])/14, 1),
+    round(sum(aomori_prefecture.cases[-37:-23])/14, 1), round(sum(aomori_prefecture.cases[-36:-22])/14, 1),
+    round(sum(aomori_prefecture.cases[-35:-21])/14, 1), round(sum(aomori_prefecture.cases[-34:-20])/14, 1),
     round(sum(aomori_prefecture.cases[-33:-19])/14, 1), round(sum(aomori_prefecture.cases[-32:-18])/14, 1),
     round(sum(aomori_prefecture.cases[-31:-17])/14, 1), round(sum(aomori_prefecture.cases[-30:-16])/14, 1),
     round(sum(aomori_prefecture.cases[-29:-15])/14, 1), round(sum(aomori_prefecture.cases[-28:-14])/14, 1),
@@ -89,10 +93,10 @@ regions = [aomori, hachinohe, hirosaki, goshogawara, mutsu, kamitosan, sannohe, 
 
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
-line_1, = ax.plot(dates[-21:], aomori_prefecture.cases[-21:], c='red', marker='o')
-line_2, = ax.plot(dates[-21:], rolling_average[0:], c='gold', marker='o')
+line_1, = ax.plot(dates[-30:], aomori_prefecture.cases[-30:], c='red', marker='o')
+line_2, = ax.plot(dates[-30:], rolling_average[0:], c='gold', marker='.')
 
-ax.set_title('Cases in Aomori Prefecture (Last 21 Days)', fontsize=16)
+ax.set_title('Cases in Aomori Prefecture (Last 30 Days)', fontsize=16)
 ax.legend([line_1, line_2], ['Daily Cases', 'Rolling 14-Day Average'], loc=(0, 0))
 ax.set_xlabel('Date', fontsize=10)
 fig.autofmt_xdate()
