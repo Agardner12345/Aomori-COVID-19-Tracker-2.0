@@ -17,13 +17,13 @@ eastern_area = ['Hiranai', 'Imabetsu', 'Sotogahama', 'Yomogita']
 
 class Region:
 
-    def __init__(self, name, message, municipalities_message, municipalities, fourteen_day):
+    def __init__(self, name, message, municipalities_message, municipalities, seven_day):
         self.name = name
         self.message = message
         self.municipalities_message = municipalities_message
         self.municipalities = municipalities
         self.cases = []
-        self.fourteen_day = fourteen_day
+        self.seven_day = seven_day
 
 aomori = Region('Aomori', 'in Aomori City', '', '', 0)
 hachinohe = Region('Hachinohe', 'in Hachinohe City', '', '', 0)
@@ -59,33 +59,33 @@ with open(filename) as f:
         eastern.cases.append(int(row[8]))
         outside_aomori.cases.append(int(row[9]))
         aomori_prefecture.cases.append(aomori.cases[-1] + hachinohe.cases[-1] + hirosaki.cases[-1] + goshogawara.cases[-1] + mutsu.cases[-1] + kamitosan.cases[-1] + sannohe.cases[-1] + eastern.cases[-1] + outside_aomori.cases[-1])
-aomori.fourteen_day = round(sum(aomori.cases[-14:])/14, 1)
-hachinohe.fourteen_day = round(sum(hachinohe.cases[-14:])/14, 1)
-hirosaki.fourteen_day = round(sum(hirosaki.cases[-14:])/14, 1)
-goshogawara.fourteen_day = round(sum(goshogawara.cases[-14:])/14, 1)
-mutsu.fourteen_day = round(sum(mutsu.cases[-14:])/14, 1)
-kamitosan.fourteen_day = round(sum(kamitosan.cases[-14:])/14, 1)
-sannohe.fourteen_day = round(sum(sannohe.cases[-14:])/14, 1)
-eastern.fourteen_day = round(sum(eastern.cases[-14:])/14, 1)
-outside_aomori.fourteen_day = round(sum(outside_aomori.cases[-14:])/14, 1)
-aomori_prefecture.fourteen_day = round(sum(aomori_prefecture.cases[-14:])/14, 1)
+aomori.seven_day = round(sum(aomori.cases[-7:])/7, 1)
+hachinohe.seven_day = round(sum(hachinohe.cases[-7:])/7, 1)
+hirosaki.seven_day = round(sum(hirosaki.cases[-7:])/7, 1)
+goshogawara.seven_day = round(sum(goshogawara.cases[-7:])/7, 1)
+mutsu.seven_day = round(sum(mutsu.cases[-7:])/7, 1)
+kamitosan.seven_day = round(sum(kamitosan.cases[-7:])/7, 1)
+sannohe.seven_day = round(sum(sannohe.cases[-7:])/7, 1)
+eastern.seven_day = round(sum(eastern.cases[-7:])/7, 1)
+outside_aomori.seven_day = round(sum(outside_aomori.cases[-7:])/7, 1)
+aomori_prefecture.seven_day = round(sum(aomori_prefecture.cases[-7:])/7, 1)
 
 rolling_average = [
-    round(sum(aomori_prefecture.cases[-43:-29])/14, 1), round(sum(aomori_prefecture.cases[-42:-28])/14, 1),
-    round(sum(aomori_prefecture.cases[-41:-27])/14, 1), round(sum(aomori_prefecture.cases[-40:-26])/14, 1),
-    round(sum(aomori_prefecture.cases[-39:-25])/14, 1), round(sum(aomori_prefecture.cases[-38:-24])/14, 1),
-    round(sum(aomori_prefecture.cases[-37:-23])/14, 1), round(sum(aomori_prefecture.cases[-36:-22])/14, 1),
-    round(sum(aomori_prefecture.cases[-35:-21])/14, 1), round(sum(aomori_prefecture.cases[-34:-20])/14, 1),
-    round(sum(aomori_prefecture.cases[-33:-19])/14, 1), round(sum(aomori_prefecture.cases[-32:-18])/14, 1),
-    round(sum(aomori_prefecture.cases[-31:-17])/14, 1), round(sum(aomori_prefecture.cases[-30:-16])/14, 1),
-    round(sum(aomori_prefecture.cases[-29:-15])/14, 1), round(sum(aomori_prefecture.cases[-28:-14])/14, 1),
-    round(sum(aomori_prefecture.cases[-27:-13])/14, 1), round(sum(aomori_prefecture.cases[-26:-12])/14, 1),
-    round(sum(aomori_prefecture.cases[-25:-11])/14, 1), round(sum(aomori_prefecture.cases[-24:-10])/14, 1),
-    round(sum(aomori_prefecture.cases[-23:-9])/14, 1), round(sum(aomori_prefecture.cases[-22:-8])/14, 1),
-    round(sum(aomori_prefecture.cases[-21:-7])/14, 1), round(sum(aomori_prefecture.cases[-20:-6])/14, 1),
-    round(sum(aomori_prefecture.cases[-19:-5])/14, 1), round(sum(aomori_prefecture.cases[-18:-4])/14, 1),
-    round(sum(aomori_prefecture.cases[-17:-3])/14, 1), round(sum(aomori_prefecture.cases[-16:-2])/14, 1),
-    round(sum(aomori_prefecture.cases[-15:-1])/14, 1), round(sum(aomori_prefecture.cases[-14:])/14, 1)
+    round(sum(aomori_prefecture.cases[-36:-29])/7, 1), round(sum(aomori_prefecture.cases[-35:-28])/7, 1),
+    round(sum(aomori_prefecture.cases[-34:-27])/7, 1), round(sum(aomori_prefecture.cases[-33:-26])/7, 1),
+    round(sum(aomori_prefecture.cases[-32:-25])/7, 1), round(sum(aomori_prefecture.cases[-31:-24])/7, 1),
+    round(sum(aomori_prefecture.cases[-30:-23])/7, 1), round(sum(aomori_prefecture.cases[-29:-22])/7, 1),
+    round(sum(aomori_prefecture.cases[-28:-21])/7, 1), round(sum(aomori_prefecture.cases[-27:-20])/7, 1),
+    round(sum(aomori_prefecture.cases[-26:-19])/7, 1), round(sum(aomori_prefecture.cases[-25:-18])/7, 1),
+    round(sum(aomori_prefecture.cases[-24:-17])/7, 1), round(sum(aomori_prefecture.cases[-23:-16])/7, 1),
+    round(sum(aomori_prefecture.cases[-22:-15])/7, 1), round(sum(aomori_prefecture.cases[-21:-14])/7, 1),
+    round(sum(aomori_prefecture.cases[-20:-13])/7, 1), round(sum(aomori_prefecture.cases[-19:-12])/7, 1),
+    round(sum(aomori_prefecture.cases[-18:-11])/7, 1), round(sum(aomori_prefecture.cases[-17:-10])/7, 1),
+    round(sum(aomori_prefecture.cases[-16:-9])/7, 1), round(sum(aomori_prefecture.cases[-15:-8])/7, 1),
+    round(sum(aomori_prefecture.cases[-14:-7])/7, 1), round(sum(aomori_prefecture.cases[-13:-6])/7, 1),
+    round(sum(aomori_prefecture.cases[-12:-5])/7, 1), round(sum(aomori_prefecture.cases[-11:-4])/7, 1),
+    round(sum(aomori_prefecture.cases[-10:-3])/7, 1), round(sum(aomori_prefecture.cases[-9:-2])/7, 1),
+    round(sum(aomori_prefecture.cases[-8:-1])/7, 1), round(sum(aomori_prefecture.cases[-7:])/7, 1)
     ]
 current_date = dates[-1].strftime('%b. %d, %Y')
 
@@ -97,7 +97,7 @@ line_1, = ax.plot(dates[-30:], aomori_prefecture.cases[-30:], c='red', marker='o
 line_2, = ax.plot(dates[-30:], rolling_average[0:], c='gold', marker='.')
 
 ax.set_title('Cases in Aomori Prefecture (Last 30 Days)', fontsize=16)
-ax.legend([line_1, line_2], ['Daily Cases', 'Rolling 14-Day Average'], loc=(0, 0))
+ax.legend([line_1, line_2], ['Daily Cases', 'Rolling 7-Day Average'], loc=(0, 0))
 ax.set_xlabel('Date', fontsize=10)
 fig.autofmt_xdate()
 ax.set_ylabel('Cases', fontsize=10)
@@ -109,10 +109,10 @@ plt.style.use('seaborn')
 fig, ax = plt.subplots()
 for region in regions:
     bar_1 = ax.barh(region.name, region.cases[-1], color='crimson', height=0.35, align='edge')
-    bar_2 = ax.barh(region.name, region.fourteen_day, color='gold', height=-0.35, align='edge')
+    bar_2 = ax.barh(region.name, region.seven_day, color='gold', height=-0.35, align='edge')
 
 ax.set_title("Today's Cases by Region", fontsize=16)
-ax.legend((bar_1[0], bar_2[0]), ('Today', '14-Day Average'))
+ax.legend((bar_1[0], bar_2[0]), ('Today', '7-Day Average'))
 ax.set_xlabel('Cases', fontsize=10)
 ax.set_ylabel('Region', fontsize=10)
 
@@ -121,7 +121,7 @@ ax.tick_params(axis='both', which='major')
 ###Opening Message###
 
 print("Welcome to the Aomori Prefecture COVID-19 Tracker.\n")
-print(f"{current_date}: There were {aomori_prefecture.cases[-1]} reported COVID-19 cases {aomori_prefecture.message}. The 14-day average for the prefecture is {aomori_prefecture.fourteen_day} cases per day.")
+print(f"{current_date}: There were {aomori_prefecture.cases[-1]} reported COVID-19 cases {aomori_prefecture.message}. The 7-day average for the prefecture is {aomori_prefecture.seven_day} cases per day.")
 print("\nToday's cases by region:\n")
 
 for region in regions:
@@ -141,7 +141,7 @@ while user_input == False:
     for region in regions:
         if message_1 == region.name or message_1 == region.name.lower():
             user_input = True
-            print(f"\nToday there were {region.cases[-1]} reported COVID-19 cases {region.message}. The 14-day average for the area is {region.fourteen_day} cases per day."
+            print(f"\nToday there were {region.cases[-1]} reported COVID-19 cases {region.message}. The 7-day average for the area is {region.seven_day} cases per day."
                   f"\n{region.municipalities_message}{region.municipalities}")
         if message_1 == 'charts':
             user_input = True
